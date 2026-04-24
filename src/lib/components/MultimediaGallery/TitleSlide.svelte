@@ -48,7 +48,7 @@ USAGE EXAMPLE:
   .slide {
     height: 100%;
     flex: 0 0 100%;
-    background: black;
+    background: #000000;
     display: flex;
     flex-direction: column;
   }
@@ -57,32 +57,8 @@ USAGE EXAMPLE:
     display: flex;
     justify-content: center;
     padding: var(--spacing-xs) var(--spacing-sm);
-    background: linear-gradient(
-      90deg,
-      var(--color-cuny-blue-dark) 0%,
-      var(--color-accent) 50%,
-      var(--color-cuny-blue-light) 100%
-    );
-    background-size: 200% 100%;
-    animation: gradient-sweep 6s ease-in-out infinite;
-  }
-
-  @keyframes gradient-sweep {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 0%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .masthead {
-      animation: none;
-    }
+    background: #0033a1;
+    border-bottom: 1px solid #002266;
   }
 
   .logo {
@@ -102,12 +78,12 @@ USAGE EXAMPLE:
   .logo-text {
     display: inline-flex;
     align-items: stretch;
-    border: 1px solid var(--color-white);
+    border: 1px solid #ffffff;
   }
 
   .logo-nycity {
-    background-color: var(--color-white);
-    color: var(--color-accent);
+    background-color: #ffffff;
+    color: #0033a1;
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-extrabold);
@@ -119,7 +95,7 @@ USAGE EXAMPLE:
   }
 
   .logo-news-service {
-    color: var(--color-white);
+    color: #ffffff;
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-light);
@@ -138,50 +114,59 @@ USAGE EXAMPLE:
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    color: white;
+    color: var(--color-paper);
     text-align: center;
   }
 
   h1 {
+    font-family: var(--font-serif);
     font-size: 2rem;
     line-height: 1.2;
     margin: 0 0 1rem;
-    color: white;
+    color: var(--color-paper);
+    letter-spacing: 0.03em;
+    text-wrap: balance;
 
     @container (min-width: 768px) {
-      font-size: 3.5rem;
+      font-size: 3rem;
+      letter-spacing: 0.04em;
     }
   }
 
   .intro {
+    font-family: var(--font-serif);
     font-size: 1.0625rem;
-    line-height: 1.6;
-    opacity: 0.85;
+    line-height: 1.7;
+    color: #cccccc;
     margin: 0 0 1.5rem;
 
     @container (min-width: 768px) {
-      font-size: 1.375rem;
-      line-height: 1.7;
+      font-size: 1.25rem;
+      line-height: 1.75;
     }
   }
 
   .byline {
+    font-family: var(--font-serif);
     font-size: 0.875rem;
-    opacity: 0.6;
+    font-style: italic;
+    color: #aaaaaa;
     margin: 0;
+    letter-spacing: 0.04em;
 
     @container (min-width: 768px) {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
   }
 
   .scroll-hint {
-    font-size: 0.8125rem;
-    opacity: 0.6;
+    font-size: 0.75rem;
+    color: #888888;
     margin: 0;
     padding-bottom: 3.5rem;
-    color: white;
     display: flex;
     justify-content: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 </style>

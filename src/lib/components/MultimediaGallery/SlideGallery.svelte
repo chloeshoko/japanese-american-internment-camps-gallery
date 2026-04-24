@@ -32,8 +32,17 @@ USAGE EXAMPLE:
     }
 
     totalSlides = galleryEl.querySelectorAll('[data-slide]').length;
+    syncVisibleSlides();
     window.addEventListener('keydown', handleKeydown);
     return () => window.removeEventListener('keydown', handleKeydown);
+  });
+
+  $effect(() => {
+    if (!galleryEl) {
+      return;
+    }
+
+    syncVisibleSlides();
   });
 
   function goNext() {
@@ -83,6 +92,16 @@ USAGE EXAMPLE:
       goNext();
     }
   }
+
+  function syncVisibleSlides() {
+    const slides = galleryEl.querySelectorAll('[data-slide]');
+
+    slides.forEach((slide, index) => {
+      const isActive = index === currentSlide;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+  }
 </script>
 
 <div class="gallery-wrapper">
@@ -95,10 +114,7 @@ USAGE EXAMPLE:
     onclick={handleGalleryClick}
     onkeydown={handleGalleryKeydown}
   >
-    <div
-      class="slides-track"
-      style="transform: translateX(-{currentSlide * 100}%)"
-    >
+    <div class="slides-stage">
       {@render children()}
     </div>
 
@@ -118,11 +134,11 @@ USAGE EXAMPLE:
 </div>
 
 <style lang="scss">
-  @use '../../styles' as *;
+  @use '$lib/styles' as *;
 
   .gallery-wrapper {
     height: 100dvh;
-    background: black;
+    background: var(--color-archive-black);
     container-type: inline-size;
     overflow: hidden;
   }
@@ -134,14 +150,27 @@ USAGE EXAMPLE:
     cursor: pointer;
   }
 
-  .slides-track {
-    display: flex;
+  .slides-stage {
+    position: relative;
     height: 100%;
-    transition: transform 0.3s ease;
+  }
+
+  .slides-stage :global([data-slide]) {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease-out;
+  }
+
+  .slides-stage :global([data-slide].is-active) {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .slides-track {
+    .slides-stage :global([data-slide]) {
       transition: none;
     }
   }
@@ -169,7 +198,7 @@ USAGE EXAMPLE:
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: var(--color-paper);
     opacity: 0.4;
     transition: opacity 0.2s ease;
   }

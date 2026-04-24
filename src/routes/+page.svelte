@@ -2,11 +2,10 @@
   import SlideGallery from '$lib/components/MultimediaGallery/SlideGallery.svelte';
   import TitleSlide from '$lib/components/MultimediaGallery/TitleSlide.svelte';
   import PhotoSlide from '$lib/components/MultimediaGallery/PhotoSlide.svelte';
-   import TextSlide from '$lib/components/MultimediaGallery/TextSlide.svelte';
-   import CreditsSlide from '$lib/components/MultimediaGallery/CreditsSlide.svelte';
+  import TextSlide from '$lib/components/MultimediaGallery/TextSlide.svelte';
+  import CreditsSlide from '$lib/components/MultimediaGallery/CreditsSlide.svelte';
 
-
-let { data } = $props();
+  let { data } = $props();
 </script>
 
 <SlideGallery>
@@ -23,14 +22,19 @@ let { data } = $props();
     {/if}
   {/each}
 
-
-<CreditsSlide>
-  <h2>About This Collection</h2>
-  <p>
-    The Manzanar photographs are held by the Library of Congress and are free for anyone to
-    download and reuse. High-resolution scans are available in the
-    <a href="https://www.loc.gov/collections/ansel-adams-manzanar/" target="_blank" rel="noopener noreferrer">
-      Prints &amp; Photographs Division</a>'s digital collection.
-  </p>
-</CreditsSlide>
+  <CreditsSlide>
+    <h2>About This Collection</h2>
+    <p>
+      The Manzanar photographs are held by the Library of Congress and are free
+      for anyone to download and reuse. High-resolution scans are available in
+      the
+      <a
+        href="https://www.loc.gov/collections/ansel-adams-manzanar/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Prints &amp; Photographs Division</a
+      >'s digital collection.
+    </p>
+  </CreditsSlide>
 </SlideGallery>

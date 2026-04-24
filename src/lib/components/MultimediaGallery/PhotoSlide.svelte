@@ -37,22 +37,13 @@ USAGE EXAMPLE:
     height: 100%;
     flex: 0 0 100%;
     position: relative;
-    background: black;
-
-    @container (min-width: 768px) {
-      display: flex;
-    }
+    background: var(--color-archive-black);
   }
 
   .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-
-    @container (min-width: 768px) {
-      width: 60%;
-      flex-shrink: 0;
-    }
+    object-fit: contain;
   }
 
   .caption {
@@ -60,38 +51,32 @@ USAGE EXAMPLE:
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 2rem 1.5rem 3.5rem;
+    padding: 1.75rem 1.25rem 3.5rem;
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 70%,
+      rgba(18, 16, 13, 0.88) 0%,
+      rgba(18, 16, 13, 0.55) 42%,
       transparent 100%
     );
-    color: white;
-
-    @container (min-width: 768px) {
-      position: static;
-      width: 40%;
-      background: black;
-      display: flex;
-      align-items: center;
-      padding: 3rem;
-    }
+    color: var(--color-paper);
   }
 
   .caption-inner {
-    max-width: 600px;
+    max-width: 48rem;
   }
 
   .caption h2 {
+    font-family: var(--font-serif);
     margin: 0 0 0.5rem;
     font-size: 1.25rem;
     line-height: 1.3;
-    color: white;
+    color: #ffffff;
+    letter-spacing: 0.03em;
 
     @container (min-width: 768px) {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
     }
   }
 
@@ -99,18 +84,19 @@ USAGE EXAMPLE:
     margin: 0 0 0.5rem;
     font-size: 0.9375rem;
     line-height: 1.5;
-    opacity: 0.9;
+    color: #cccccc;
 
     @container (min-width: 768px) {
       font-size: 1.0625rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
     }
   }
 
   .caption .credit {
     font-size: 0.75rem;
-    opacity: 0.6;
+    color: #999999;
+    letter-spacing: 0.04em;
 
     @container (min-width: 768px) {
       font-size: 0.8125rem;

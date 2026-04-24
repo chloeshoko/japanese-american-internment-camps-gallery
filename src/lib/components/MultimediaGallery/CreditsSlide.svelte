@@ -28,7 +28,7 @@ USAGE EXAMPLE:
   .slide {
     height: 100%;
     flex: 0 0 100%;
-    background: black;
+    background: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,25 +37,28 @@ USAGE EXAMPLE:
   .content {
     max-width: 600px;
     padding: 2rem;
-    color: white;
+    color: #ffffff;
   }
 
   .content :global(h2) {
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     margin: 0 0 1rem;
-    color: white;
+    color: #ffffff;
+    letter-spacing: var(--letter-spacing-wide);
   }
 
   .content :global(p) {
+    font-family: var(--font-serif);
     font-size: 0.9375rem;
     line-height: 1.6;
-    opacity: 0.85;
+    color: #cccccc;
     margin: 0 0 1rem;
   }
 
   .content :global(a) {
-    color: white;
-    opacity: 0.7;
+    color: #ffffff;
+    opacity: 0.9;
   }
 
   .content :global(a:hover),
@@ -64,7 +67,7 @@ USAGE EXAMPLE:
   }
 
   .content :global(a:focus-visible) {
-    outline: 2px solid var(--color-white);
+    outline: 2px solid var(--color-sepia-dark);
     outline-offset: 2px;
   }
 </style>
