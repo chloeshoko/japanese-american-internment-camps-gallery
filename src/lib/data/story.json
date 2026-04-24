@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "type": "text",
+    "headline": "The Assignment",
+    "body": "In 1943, photographer Ansel Adams traveled to the Manzanar War Relocation Center in California to document the lives of Japanese-Americans forcibly interned there during World War II."
+  },
+
+  {
+    "id": 2,
+    "type": "photo",
+    "filename": "japanese-internment-01.jpg",
+    "title": "Baseball game",
+    "caption": "Japanese Americans observe an amateur baseball game in progress; one-story buildings and mountains in the background.",
+    "credit": "Ansel Adams / Library of Congress"
+  },
+
+  {
+    "id": 3,
+    "type": "photo",
+    "filename": "japanese-internment-02.jpg",
+    "title": "Tojo Miatake [i.e. Tōyō Miyatake] Family",
+    "caption": "Tōyō Miyatake, full-length portrait, standing in his children's bedroom looking at his young daughter seated at a desk, drawing, while her mother stands behind her.",
+    "credit": "Ansel Adams / Library of Congress"
+  },
+
+    {
+    "id": 4,
+    "type": "photo",
+    "filename": "japanese-internment-04.jpg",
+    "title": "Catherine Natsuko Yamaguchi",
+    "caption": "Red Cross instructor",
+    "credit": "Ansel Adams / Library of Congress"
+  },
+
+      {
+    "id": 5,
+    "type": "photo",
+    "filename": "japanese-internment-05.jpg",
+    "title": "Roy Takeno",
+    "caption": "Photo shows editor Roy Takeno reading a copy of the Manzanar Free Press in front of the newspaper office at the Manzanar War Relocation Center; with mountains in the background.",
+    "credit": "Ansel Adams / Library of Congress"
+  },
+
+       {
+    "id": 6,
+    "type": "photo",
+    "filename": "japanese-internment-06.jpg",
+    "title": "Manzanar Relocation Center from tower",
+    "caption": "Bird's-eye view of grounds from guard tower; view west, showing buildings, roads, and Sierra Nevada mountains in background.",
+    "credit": "Ansel Adams / Library of Congress"
+  }, 
+
+ {
+  "id": 7,
+  "type": "text",
+  "body": "In 1944, Adams published \"Born Free and Equal\", a selection of his Manzanar images paired with his own text, which made the San Francisco Chronicle's bestseller list in 1945."
+},
+
+  {
+  "id": 8,
+  "type": "text",
+  "body": "When Adams offered the collection to the Library of Congress in 1965, he described it as an important historical document of people who, suffering under a great injustice, built a vital community in an arid environment."
+},
+
+ {
+  "id": 9,
+  "type": "text",
+  "body": "In 1988, Congress formally apologized for the \"grave injustice\" done to Japanese-Americans, declaring the internments were motivated by racial prejudice and wartime hysteria, and authorized a $20,000 payment to survivors."
+}
+]

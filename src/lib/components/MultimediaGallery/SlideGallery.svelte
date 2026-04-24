@@ -57,27 +57,50 @@ USAGE EXAMPLE:
       goPrev();
     }
   }
+
+  function handleGalleryClick(event) {
+    const interactiveElement = event.target.closest(
+      'a, button, input, textarea, select, label'
+    );
+
+    if (interactiveElement || !galleryEl) {
+      return;
+    }
+
+    const rect = galleryEl.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+
+    if (clickX <= rect.width / 3) {
+      goPrev();
+    } else {
+      goNext();
+    }
+  }
+
+  function handleGalleryKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goNext();
+    }
+  }
 </script>
 
 <div class="gallery-wrapper">
-  <div class="gallery" bind:this={galleryEl}>
+  <div
+    class="gallery"
+    bind:this={galleryEl}
+    role="button"
+    tabindex="0"
+    aria-label="Slide gallery"
+    onclick={handleGalleryClick}
+    onkeydown={handleGalleryKeydown}
+  >
     <div
       class="slides-track"
       style="transform: translateX(-{currentSlide * 100}%)"
     >
       {@render children()}
     </div>
-
-    <button
-      class="tap-zone tap-prev"
-      onclick={goPrev}
-      aria-label="Previous slide"
-    >
-      <span class="arrow-hint">‹</span>
-    </button>
-    <button class="tap-zone tap-next" onclick={goNext} aria-label="Next slide">
-      <span class="arrow-hint">›</span>
-    </button>
 
     {#if totalSlides > 1}
       <div class="dots" aria-label="Slide indicators">
@@ -108,6 +131,7 @@ USAGE EXAMPLE:
     position: relative;
     height: 100%;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .slides-track {
@@ -122,56 +146,12 @@ USAGE EXAMPLE:
     }
   }
 
-  .tap-zone {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 5;
-    -webkit-tap-highlight-color: transparent;
-    display: flex;
-    align-items: center;
-  }
-
-  .tap-prev {
-    left: 0;
-    width: 33.333%;
-    justify-content: flex-start;
-    padding-left: 0.5rem;
-  }
-
-  .tap-next {
-    right: 0;
-    width: 66.667%;
-    justify-content: flex-end;
-    padding-right: 0.5rem;
-  }
-
-  .arrow-hint {
-    display: none;
-    font-size: 2rem;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-    user-select: none;
-
-    @include tablet {
-      display: block;
-    }
-  }
-
-  .tap-zone:focus-visible {
-    outline: 2px solid var(--color-white);
-    outline-offset: -2px;
-  }
-
-  .tap-zone:hover .arrow-hint,
-  .tap-zone:focus-visible .arrow-hint {
-    opacity: 0.7;
+  .gallery :global(a),
+  .gallery :global(button),
+  .gallery :global(input),
+  .gallery :global(select),
+  .gallery :global(textarea) {
+    cursor: auto;
   }
 
   .dots {
