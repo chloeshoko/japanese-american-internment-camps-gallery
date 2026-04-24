@@ -38,20 +38,20 @@ USAGE EXAMPLE:
     flex: 0 0 100%;
     position: relative;
     background: var(--color-archive-black);
+    display: flex;
+    flex-direction: column;
   }
 
   .slide img {
     width: 100%;
-    height: 100%;
+    max-height: 70vh;
     object-fit: contain;
+    object-position: center;
   }
 
   .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.75rem 1.25rem 3.5rem;
+    flex-shrink: 0;
+    padding: 1rem 1rem 1.5rem;
     background: linear-gradient(
       to top,
       rgba(18, 16, 13, 0.88) 0%,
